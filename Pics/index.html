@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>West End Settlements | Perth's Premier Settlement Agents</title>
+    <title>West End Settlements | Perth's Trusted Settlement Agents</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,25 +19,27 @@
                     },
                     colors: {
                         brand: {
-                            red: '#E31837', // Matched to logo red
-                            dark: '#1A1A1A',
-                            gray: '#F3F4F6',
+                            primary: '#8c3b49',   // Base red/burgundy
+                            secondary: '#98394a', // Slightly lighter
+                            tertiary: '#B86b7a',  // Light pink tone
+                            pop: '#E31837',       // Bright red (CTA)
+                            dark: '#111827',      // Deep Gray/Black (Modern Dark)
+                            gray: '#F9FAFB',      // Very Light Gray
                             gold: '#D4AF37',
                         }
                     },
                     animation: {
-                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
                     },
                     keyframes: {
                         fadeInUp: {
                             '0%': { opacity: '0', transform: 'translateY(20px)' },
                             '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
                         }
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                        'glow': '0 0 20px -5px rgba(140, 59, 73, 0.3)',
                     }
                 }
             }
@@ -52,31 +54,31 @@
             background: #f1f1f1;
         }
         ::-webkit-scrollbar-thumb {
-            background: #E31837;
+            background: #8c3b49;
             border-radius: 5px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #c4122d;
+            background: #98394a;
         }
         
         .glass-nav {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
-        .text-gradient {
-            background: linear-gradient(to right, #1A1A1A, #4B5563);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
         .hover-card {
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .hover-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
             box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Custom Radio/Checkbox Styles */
+        .radio-card input:checked + div {
+            border-color: #8c3b49;
+            background-color: #fff5f7;
         }
     </style>
 </head>
@@ -88,31 +90,31 @@
             <div class="flex justify-between items-center h-24">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
-                    <div class="flex items-center gap-2">
-                        <div class="bg-brand-red text-white p-2 rounded-lg shadow-lg">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-brand-primary text-white p-2.5 rounded-xl shadow-lg shadow-brand-primary/30">
                             <i class="fa-solid fa-house-chimney text-2xl"></i>
                         </div>
                         <div class="flex flex-col">
                             <span class="text-2xl font-bold text-gray-900 leading-none tracking-tight">WestEnd</span>
-                            <span class="text-sm font-medium text-gray-500 tracking-widest uppercase">Settlements</span>
+                            <span class="text-xs font-bold text-gray-500 tracking-[0.2em] uppercase mt-0.5">Settlements</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="text-gray-600 hover:text-brand-red font-medium transition-colors">Home</a>
-                    <a href="#about" class="text-gray-600 hover:text-brand-red font-medium transition-colors">About</a>
-                    <a href="#services" class="text-gray-600 hover:text-brand-red font-medium transition-colors">Services</a>
-                    <a href="#team" class="text-gray-600 hover:text-brand-red font-medium transition-colors">Team</a>
-                    <a href="#contact" class="bg-brand-red hover:bg-red-700 text-white px-6 py-3 rounded-full font-semibold transition-all shadow-lg hover:shadow-red-500/30 hover:scale-105">
-                        Get a Quote
+                <div class="hidden md:flex items-center space-x-10">
+                    <a href="#home" class="text-sm font-semibold text-gray-600 hover:text-brand-primary transition-colors uppercase tracking-wide">Home</a>
+                    <a href="#about" class="text-sm font-semibold text-gray-600 hover:text-brand-primary transition-colors uppercase tracking-wide">About Us</a>
+                    <a href="#services" class="text-sm font-semibold text-gray-600 hover:text-brand-primary transition-colors uppercase tracking-wide">Services</a>
+                    <a href="#testimonials" class="text-sm font-semibold text-gray-600 hover:text-brand-primary transition-colors uppercase tracking-wide">Testimonials</a>
+                    <a href="#contact" class="bg-brand-pop hover:bg-red-700 text-white px-8 py-3 rounded-full font-bold transition-all shadow-lg hover:shadow-red-500/40 hover:scale-105 tracking-wide">
+                        Request Quote
                     </a>
                 </div>
 
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center">
-                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-gray-600 hover:text-brand-red focus:outline-none">
+                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-gray-900 hover:text-brand-primary focus:outline-none transition-colors">
                         <i class="fa-solid fa-bars text-2xl"></i>
                     </button>
                 </div>
@@ -120,388 +122,570 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl">
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-2xl">
             <div class="px-4 pt-2 pb-6 space-y-2">
-                <a href="#home" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-brand-red hover:bg-red-50 rounded-md">Home</a>
-                <a href="#about" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-brand-red hover:bg-red-50 rounded-md">About</a>
-                <a href="#services" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-brand-red hover:bg-red-50 rounded-md">Services</a>
-                <a href="#team" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-brand-red hover:bg-red-50 rounded-md">Team</a>
-                <a href="#contact" class="block px-3 py-3 text-base font-medium text-brand-red bg-red-50 rounded-md">Get a Quote</a>
+                <a href="#home" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-brand-primary hover:bg-red-50 rounded-md">Home</a>
+                <a href="#about" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-brand-primary hover:bg-red-50 rounded-md">About Us</a>
+                <a href="#services" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-brand-primary hover:bg-red-50 rounded-md">Services</a>
+                <a href="#testimonials" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-brand-primary hover:bg-red-50 rounded-md">Testimonials</a>
+                <a href="#contact" class="block px-3 py-3 text-base font-medium text-brand-pop bg-red-50 rounded-md">Request Quote</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-cover bg-center bg-no-repeat" style="background-image: url('office_photo_original.jpeg');">
+    <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-40 overflow-hidden bg-cover bg-center bg-no-repeat" style="background-image: url('office_photo_original.jpeg');">
         <!-- Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-r from-brand-dark/95 via-brand-dark/70 to-brand-dark/30"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-black/95 via-black/60 to-transparent"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="max-w-3xl">
-                
                 <!-- Hero Text -->
                 <div class="space-y-8 opacity-0 animate-fade-in-up" style="animation-delay: 0.1s;">
-                    <div class="inline-flex items-center px-3 py-1 rounded-full border border-white/20 bg-white/10 text-white text-sm font-semibold tracking-wide uppercase">
-                        <span class="w-2 h-2 bg-brand-red rounded-full mr-2 animate-pulse"></span>
-                        Established 1995
+                    <div class="inline-flex items-center px-4 py-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm text-white text-xs font-bold tracking-widest uppercase mb-2">
+                        <span class="w-2 h-2 bg-brand-pop rounded-full mr-2 animate-pulse"></span>
+                        Premier Settlement Agents
                     </div>
-                    <h1 class="text-5xl lg:text-7xl font-extrabold tracking-tight text-white leading-tight">
-                        Settlements Made <br>
-                        <span class="text-brand-red relative inline-block">
-                            Simple.
-                            <svg class="absolute w-full h-3 -bottom-1 left-0 text-brand-gold opacity-80" viewBox="0 0 100 10" preserveAspectRatio="none">
+                    <h1 class="text-4xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.1]">
+                        Your trusted advisor for
+                        <span class="relative inline-block">
+                            <span class="relative z-10">property and business settlements</span>
+                            <svg class="absolute w-full h-3 -bottom-1 left-0 text-brand-gold opacity-90" viewBox="0 0 100 10" preserveAspectRatio="none">
                                 <path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="8" fill="none" />
                             </svg>
                         </span>
                     </h1>
-                    <p class="text-xl text-gray-200 leading-relaxed max-w-lg">
-                        Perth’s most trusted independent settlement agents. We handle your property transactions with honesty, courtesy, and respect.
+                    <p class="text-xl lg:text-2xl text-gray-200 leading-relaxed max-w-2xl font-light">
+                        Guiding you through one of life’s most important transactions with diligence, care and skill.
                     </p>
                     
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#contact" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-base font-bold rounded-full text-white bg-brand-red hover:bg-red-700 md:text-lg shadow-lg hover:shadow-red-500/40 transition-all hover:-translate-y-1">
-                            Start Settlement
-                            <i class="fa-solid fa-arrow-right ml-2"></i>
-                        </a>
-                        <a href="tel:0894433044" class="inline-flex justify-center items-center px-8 py-4 border-2 border-white/30 text-base font-bold rounded-full text-white bg-white/10 hover:bg-white hover:text-brand-red hover:border-white md:text-lg transition-all hover:-translate-y-1 backdrop-blur-sm">
-                            <i class="fa-solid fa-phone mr-2"></i>
-                            (08) 9443 3044
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                        <a href="#contact" class="inline-flex justify-center items-center px-10 py-5 border border-transparent text-lg font-bold rounded-full text-white bg-brand-pop hover:bg-red-700 shadow-glow transition-all hover:-translate-y-1 hover:shadow-lg">
+                            Request Quote
+                            <i class="fa-solid fa-arrow-right ml-3"></i>
                         </a>
                     </div>
                     
                     <!-- Trust Indicators -->
-                    <div class="pt-6 flex items-center gap-6 text-gray-300">
-                        <div class="flex -space-x-2">
-                            <img class="inline-block h-10 w-10 rounded-full ring-2 ring-brand-dark object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=64&h=64" alt=""/>
-                            <img class="inline-block h-10 w-10 rounded-full ring-2 ring-brand-dark object-cover" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=64&h=64" alt=""/>
-                            <img class="inline-block h-10 w-10 rounded-full ring-2 ring-brand-dark object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=64&h=64" alt=""/>
-                            <div class="h-10 w-10 rounded-full ring-2 ring-brand-dark bg-brand-red flex items-center justify-center text-xs font-bold text-white">+2k</div>
+                    <div class="pt-10 border-t border-white/10 flex items-center gap-6 text-gray-300">
+                        <div class="flex -space-x-3">
+                            <img class="inline-block h-14 w-14 rounded-full ring-4 ring-black/50 object-cover" src="OliverWood.png" alt="Happy Client"/>
+                            <img class="inline-block h-14 w-14 rounded-full ring-4 ring-black/50 object-cover" src="Joshua_Franzone.png" alt="Happy Client"/>
+                            <img class="inline-block h-14 w-14 rounded-full ring-4 ring-black/50 object-cover" src="shannon_borg.png" alt="Happy Client"/>
+                            <div class="h-14 w-14 rounded-full ring-4 ring-black/50 bg-brand-primary flex items-center justify-center text-xs font-bold text-white">+2k</div>
                         </div>
-                        <p class="text-sm font-medium">Happy Clients <br>Since 1995</p>
+                        <div class="flex flex-col">
+                            <div class="flex text-brand-gold text-sm mb-1">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-sm font-medium text-white">Trusted by Happy Clients <br><span class="text-gray-400 font-normal">Since 1995</span></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="bg-brand-dark py-12 text-white">
+    <!-- About Us Section -->
+    <section id="about" class="py-24 lg:py-32 bg-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div class="p-4">
-                    <div class="text-4xl font-bold text-brand-red mb-2">30+</div>
-                    <div class="text-gray-400 font-medium">Years Experience</div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div class="order-2 lg:order-1 relative">
+                    <div class="absolute -top-12 -left-12 w-64 h-64 bg-brand-tertiary/5 rounded-full blur-3xl -z-10"></div>
+                    
+                    <h2 class="text-brand-primary font-bold tracking-widest uppercase text-sm mb-4">About Us</h2>
+                    <h3 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-8 leading-tight">Family Owned, <br>Expertly Led.</h3>
+                    <div class="space-y-6 text-gray-600 text-lg leading-relaxed">
+                        <p>
+                            West End Settlements is a family owned company proudly providing property and business settlement services throughout Western Australia. With our 30 years’ experience, our directors lead an approachable and friendly team that takes pride in building strong relationships with clients and stakeholders and providing exceptional services.
+                        </p>
+                        <p>
+                            We provide expert guidance at every stage of your property or business settlement, ensuring a smooth and stress free process.
+                        </p>
+                        <div class="mt-8 p-6 bg-gray-50 rounded-2xl border-l-4 border-brand-primary shadow-sm">
+                            <p class="text-gray-900 font-medium italic">"Guiding you through one of life’s most important transactions with diligence, care and skill."</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="p-4">
-                    <div class="text-4xl font-bold text-brand-red mb-2">10k+</div>
-                    <div class="text-gray-400 font-medium">Settlements</div>
-                </div>
-                <div class="p-4">
-                    <div class="text-4xl font-bold text-brand-red mb-2">100%</div>
-                    <div class="text-gray-400 font-medium">Independent</div>
-                </div>
-                <div class="p-4">
-                    <div class="text-4xl font-bold text-brand-red mb-2">24hr</div>
-                    <div class="text-gray-400 font-medium">Response Time</div>
+                
+                <!-- Image -->
+                <div class="order-1 lg:order-2 relative group">
+                    <div class="absolute inset-0 bg-brand-primary rounded-[2.5rem] rotate-6 opacity-5 group-hover:rotate-3 transition-transform duration-500"></div>
+                    <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl h-[550px] transform transition-transform duration-500 group-hover:-translate-y-2">
+                         <img src="lawyerteam.jpg" alt="West End Settlements Team" class="w-full h-full object-cover">
+                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-24 bg-gray-50 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-brand-red font-bold tracking-wide uppercase text-sm mb-3">What We Do</h2>
-                <h3 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Comprehensive Settlement Services</h3>
-                <p class="text-gray-600 text-lg">Whether you're buying, selling, or subdividing, our licensed team handles the complexity so you can focus on moving.</p>
+    <section id="services" class="py-24 lg:py-32 bg-brand-gray relative">
+        <!-- Background decoration -->
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-white skew-x-12 translate-x-32 opacity-50"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h2 class="text-brand-primary font-bold tracking-widest uppercase text-sm mb-4">Services / What We Do</h2>
+                <h3 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">Comprehensive Settlement Services</h3>
+                <p class="text-xl text-gray-600">Expert handling of every aspect of your settlement journey.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
                 <!-- Service Card 1 -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm hover-card border border-gray-100 group">
-                    <div class="w-14 h-14 bg-red-50 rounded-2xl flex items-center justify-center text-brand-red mb-6 group-hover:bg-brand-red group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-house-user text-2xl"></i>
+                <div class="bg-white p-10 rounded-3xl shadow-soft hover-card border border-white group hover:border-brand-tertiary/20">
+                    <div class="w-16 h-16 bg-brand-primary/5 rounded-2xl flex items-center justify-center text-brand-primary mb-8 group-hover:bg-brand-primary group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-briefcase text-3xl"></i>
                     </div>
-                    <h4 class="text-xl font-bold text-gray-900 mb-3">Residential Settlements</h4>
-                    <p class="text-gray-600 mb-6">Smooth processing for buying or selling your home. We handle all documentation and liaise with banks.</p>
-                    <a href="#contact" class="text-brand-red font-semibold flex items-center group-hover:translate-x-2 transition-transform">
-                        Learn More <i class="fa-solid fa-chevron-right text-xs ml-2"></i>
-                    </a>
+                    <h4 class="text-2xl font-bold text-gray-900 mb-4">Business Settlements</h4>
+                    <p class="text-gray-600 leading-relaxed">West End Settlements is one of the few fully licensed business settlement agencies in Western Australia and has been providing business settlement services for over three decades.</p>
                 </div>
 
                 <!-- Service Card 2 -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm hover-card border border-gray-100 group">
-                    <div class="w-14 h-14 bg-red-50 rounded-2xl flex items-center justify-center text-brand-red mb-6 group-hover:bg-brand-red group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-building text-2xl"></i>
+                <div class="bg-white p-10 rounded-3xl shadow-soft hover-card border border-white group hover:border-brand-tertiary/20">
+                    <div class="w-16 h-16 bg-brand-primary/5 rounded-2xl flex items-center justify-center text-brand-primary mb-8 group-hover:bg-brand-primary group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-house-user text-3xl"></i>
                     </div>
-                    <h4 class="text-xl font-bold text-gray-900 mb-3">Commercial Settlements</h4>
-                    <p class="text-gray-600 mb-6">Expert handling of commercial property transactions, ensuring compliance and protecting your business interests.</p>
-                    <a href="#contact" class="text-brand-red font-semibold flex items-center group-hover:translate-x-2 transition-transform">
-                        Learn More <i class="fa-solid fa-chevron-right text-xs ml-2"></i>
-                    </a>
+                    <h4 class="text-2xl font-bold text-gray-900 mb-4">Residential & Vacant Land</h4>
+                    <p class="text-gray-600 leading-relaxed">Our expert team ensures a seamless process from start to finish, guiding you every step of the way.</p>
                 </div>
 
                 <!-- Service Card 3 -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm hover-card border border-gray-100 group">
-                    <div class="w-14 h-14 bg-red-50 rounded-2xl flex items-center justify-center text-brand-red mb-6 group-hover:bg-brand-red group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-map text-2xl"></i>
+                <div class="bg-white p-10 rounded-3xl shadow-soft hover-card border border-white group hover:border-brand-tertiary/20">
+                    <div class="w-16 h-16 bg-brand-primary/5 rounded-2xl flex items-center justify-center text-brand-primary mb-8 group-hover:bg-brand-primary group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-city text-3xl"></i>
                     </div>
-                    <h4 class="text-xl font-bold text-gray-900 mb-3">Subdivisions</h4>
-                    <p class="text-gray-600 mb-6">Navigate the complex subdivision process with ease. We manage new titles and landgate requirements.</p>
-                    <a href="#contact" class="text-brand-red font-semibold flex items-center group-hover:translate-x-2 transition-transform">
-                        Learn More <i class="fa-solid fa-chevron-right text-xs ml-2"></i>
-                    </a>
+                    <h4 class="text-2xl font-bold text-gray-900 mb-4">Commercial & Industrial</h4>
+                    <p class="text-gray-600 leading-relaxed">Helping you achieve your commercial goals with ease.</p>
                 </div>
 
                 <!-- Service Card 4 -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm hover-card border border-gray-100 group">
-                    <div class="w-14 h-14 bg-red-50 rounded-2xl flex items-center justify-center text-brand-red mb-6 group-hover:bg-brand-red group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-file-contract text-2xl"></i>
+                <div class="bg-white p-10 rounded-3xl shadow-soft hover-card border border-white group hover:border-brand-tertiary/20">
+                    <div class="w-16 h-16 bg-brand-primary/5 rounded-2xl flex items-center justify-center text-brand-primary mb-8 group-hover:bg-brand-primary group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-map text-3xl"></i>
                     </div>
-                    <h4 class="text-xl font-bold text-gray-900 mb-3">Title Searches</h4>
-                    <p class="text-gray-600 mb-6">Comprehensive searches to identify easements, covenants, or caveats on any property title.</p>
-                    <a href="#contact" class="text-brand-red font-semibold flex items-center group-hover:translate-x-2 transition-transform">
-                        Learn More <i class="fa-solid fa-chevron-right text-xs ml-2"></i>
-                    </a>
+                    <h4 class="text-2xl font-bold text-gray-900 mb-4">Subdivisions</h4>
+                    <p class="text-gray-600 leading-relaxed">We excel in handling all the complexities of land subdivisions.</p>
                 </div>
 
                 <!-- Service Card 5 -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm hover-card border border-gray-100 group">
-                    <div class="w-14 h-14 bg-red-50 rounded-2xl flex items-center justify-center text-brand-red mb-6 group-hover:bg-brand-red group-hover:text-white transition-colors">
-                        <i class="fa-solid fa-people-arrows text-2xl"></i>
+                <div class="bg-white p-10 rounded-3xl shadow-soft hover-card border border-white group hover:border-brand-tertiary/20">
+                    <div class="w-16 h-16 bg-brand-primary/5 rounded-2xl flex items-center justify-center text-brand-primary mb-8 group-hover:bg-brand-primary group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-people-arrows text-3xl"></i>
                     </div>
-                    <h4 class="text-xl font-bold text-gray-900 mb-3">Family Transfers</h4>
-                    <p class="text-gray-600 mb-6">Compassionate and efficient handling of property transfers between family members or related parties.</p>
-                    <a href="#contact" class="text-brand-red font-semibold flex items-center group-hover:translate-x-2 transition-transform">
-                        Learn More <i class="fa-solid fa-chevron-right text-xs ml-2"></i>
-                    </a>
+                    <h4 class="text-2xl font-bold text-gray-900 mb-4">Family Transfers</h4>
+                    <p class="text-gray-600 leading-relaxed">Marriage, defacto, divorce, change of name and other related party transactions.</p>
                 </div>
 
-                 <!-- Service Card 6 (CTA) -->
-                 <div class="bg-brand-red p-8 rounded-3xl shadow-lg hover-card border border-red-500 group flex flex-col justify-center items-center text-center">
-                    <h4 class="text-2xl font-bold text-white mb-3">Need a Quote?</h4>
-                    <p class="text-white/80 mb-6">Get a fast, transparent fee estimate for your settlement today.</p>
-                    <a href="#contact" class="bg-white text-brand-red px-6 py-3 rounded-full font-bold hover:bg-gray-100 transition-colors w-full">
-                        Get Started
-                    </a>
+                <!-- Service Card 6 -->
+                <div class="bg-white p-10 rounded-3xl shadow-soft hover-card border border-white group hover:border-brand-tertiary/20">
+                    <div class="w-16 h-16 bg-brand-primary/5 rounded-2xl flex items-center justify-center text-brand-primary mb-8 group-hover:bg-brand-primary group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-heart text-3xl"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-gray-900 mb-4">Survivorship Applications</h4>
+                    <p class="text-gray-600 leading-relaxed">Our compassionate team expertly handles these matters with understanding, patience and care.</p>
                 </div>
+            </div>
+            
+            <!-- Request Quote Button -->
+            <div class="text-center">
+                <a href="#contact" class="inline-flex justify-center items-center px-10 py-5 border border-transparent text-lg font-bold rounded-full text-white bg-brand-pop hover:bg-red-700 shadow-xl transition-all hover:-translate-y-1 hover:shadow-red-500/30">
+                    Request Quote
+                    <i class="fa-solid fa-arrow-right ml-3"></i>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- About / Story Section -->
-    <section id="about" class="py-24 overflow-hidden">
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-24 lg:py-32 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div class="order-2 lg:order-1 relative">
-                    <!-- Decorative Square -->
-                    <div class="absolute -top-4 -left-4 w-24 h-24 bg-brand-gold/20 rounded-2xl -z-10"></div>
-                    <div class="absolute -bottom-4 -right-4 w-64 h-64 bg-brand-red/5 rounded-full -z-10"></div>
-                    
-                    <h2 class="text-brand-red font-bold tracking-wide uppercase text-sm mb-3">About Us</h2>
-                    <h3 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6">Honesty, Courtesy, and Respect Since 1995.</h3>
-                    <div class="space-y-4 text-gray-600 text-lg leading-relaxed">
-                        <p>
-                            West End Settlements began as a settlement agent in Perth in 1995 (formerly West Coast Settlements). Since amalgamating with "Property People Settlements" in 2001, we have grown into one of Perth's most respected independent agencies.
-                        </p>
-                        <p>
-                            We pride ourselves on receiving the majority of our clientele through referrals. This is a testament to our friendly, professional attitude and genuine helpful assistance.
-                        </p>
-                        <div class="border-l-4 border-brand-red pl-6 italic text-gray-800 font-medium my-6">
-                            "We ensure a successful completion every time by putting our client's needs first."
+            <div class="text-center mb-20">
+                <h2 class="text-brand-primary font-bold tracking-widest uppercase text-sm mb-4">What Our Clients Say</h2>
+                <h3 class="text-4xl md:text-5xl font-extrabold text-gray-900">Client Reviews</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Testimonial 1 -->
+                <div class="bg-brand-gray p-10 rounded-3xl relative group hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-100">
+                    <i class="fa-solid fa-quote-left text-5xl text-brand-tertiary/10 absolute top-8 left-8"></i>
+                    <div class="relative z-10 flex flex-col h-full">
+                        <div class="flex-grow">
+                             <div class="flex text-brand-gold mb-6">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-gray-700 mb-8 italic text-lg leading-relaxed">"We recently bought a business and the freehold... Can't thank Simone and the team enough for the prompt and excellent service. Between Simone and our bank broker, we feel as though we really had the 'dream team' helping us achieve our goals."</p>
+                        </div>
+                        <div class="flex items-center gap-4 border-t border-gray-200 pt-6">
+                            <img src="Tiffany_Mitchell.png" alt="Tiffany Mitchell" class="w-14 h-14 rounded-full object-cover ring-2 ring-white shadow-md">
+                            <div>
+                                <h5 class="font-bold text-gray-900 text-lg">Tiffany Mitchell</h5>
+                                <p class="text-sm text-brand-primary font-medium">Business Owner</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="mt-8">
-                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/PEXA_Logo.svg/2560px-PEXA_Logo.svg.png" alt="PEXA Certified" class="h-8 opacity-70 hover:opacity-100 transition-opacity">
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-brand-gray p-10 rounded-3xl relative group hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-100">
+                    <i class="fa-solid fa-quote-left text-5xl text-brand-tertiary/10 absolute top-8 left-8"></i>
+                    <div class="relative z-10 flex flex-col h-full">
+                         <div class="flex-grow">
+                             <div class="flex text-brand-gold mb-6">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-gray-700 mb-8 italic text-lg leading-relaxed">"Rebecca and the team at West End Settlements made the process of selling a breeze. They were so easy to deal with - I will be recommending them to anyone selling or buying property in the future."</p>
+                        </div>
+                        <div class="flex items-center gap-4 border-t border-gray-200 pt-6">
+                            <img src="OliverWood.png" alt="Adam Parasiliti" class="w-14 h-14 rounded-full object-cover ring-2 ring-white shadow-md">
+                            <div>
+                                <h5 class="font-bold text-gray-900 text-lg">Adam Parasiliti</h5>
+                                <p class="text-sm text-brand-primary font-medium">Property Seller</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                
-                <!-- Team Image -->
-                <div class="order-1 lg:order-2 relative">
-                     <!-- USING UPLOADED IMAGE HERE -->
-                    <div class="relative rounded-[2rem] overflow-hidden shadow-2xl group">
-                         <img src="lawyerteam.jpg" alt="West End Settlements Team" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
-                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-80"></div>
-                         <div class="absolute bottom-0 left-0 p-8 text-white">
-                             <h4 class="text-xl font-bold">Our Expert Team</h4>
-                             <p class="text-sm text-gray-200">Led by Erica Settineri & Maree Bahn</p>
-                         </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-brand-gray p-10 rounded-3xl relative group hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-100">
+                    <i class="fa-solid fa-quote-left text-5xl text-brand-tertiary/10 absolute top-8 left-8"></i>
+                    <div class="relative z-10 flex flex-col h-full">
+                         <div class="flex-grow">
+                             <div class="flex text-brand-gold mb-6">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-gray-700 mb-8 italic text-lg leading-relaxed">"Amazing team! Always providing invaluable assistance, guidance, and behind-the-scenes efforts throughout the settlement process of our first home. Their expertise ensured a smooth and seamless settlement process..."</p>
+                        </div>
+                        <div class="flex items-center gap-4 border-t border-gray-200 pt-6">
+                            <div class="w-14 h-14 rounded-full bg-brand-primary/10 flex items-center justify-center text-brand-primary ring-2 ring-white shadow-md">
+                                <i class="fa-solid fa-user text-xl"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-gray-900 text-lg">Liana Anastasio</h5>
+                                <p class="text-sm text-brand-primary font-medium">First Home Buyer</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Team Section -->
-    <section id="team" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Quote Form Section -->
+    <section id="contact" class="py-24 lg:py-32 relative bg-brand-dark">
+        <!-- Background effects -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+            <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-primary/20 rounded-full blur-[100px]"></div>
+            <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-tertiary/10 rounded-full blur-[100px]"></div>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-900">Meet The Directors</h2>
-                <p class="mt-4 text-gray-500">Decades of combined experience in WA Property Law</p>
+                <h2 class="text-white font-bold tracking-widest uppercase text-sm mb-4">Get Started</h2>
+                <h3 class="text-4xl font-extrabold text-white">Start Your Settlement</h3>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <!-- Team Member 1 -->
-                <div class="bg-gray-50 rounded-3xl p-6 flex flex-col sm:flex-row items-center gap-6 shadow-sm hover:shadow-lg transition-all">
-                    <div class="w-24 h-24 rounded-full bg-gray-200 overflow-hidden flex-shrink-0">
-                        <img src="https://ui-avatars.com/api/?name=Erica+Settineri&background=E31837&color=fff" alt="Erica Settineri" class="w-full h-full object-cover">
-                    </div>
-                    <div class="text-center sm:text-left">
-                        <h4 class="text-xl font-bold text-gray-900">Erica Settineri</h4>
-                        <p class="text-brand-red font-medium text-sm uppercase tracking-wider mb-2">Company Director</p>
-                        <p class="text-gray-600 text-sm">Licensed Real Estate and Business Settlement Agent since 1986. Erica's energetic personality ensures every client is well looked after.</p>
+
+            <!-- Form Card -->
+            <div class="bg-white rounded-[2rem] shadow-2xl overflow-hidden">
+                <!-- Form Header -->
+                <div class="bg-brand-primary p-10 text-white text-center relative overflow-hidden">
+                    <div class="absolute inset-0 bg-black/10"></div>
+                    <div class="relative z-10">
+                         <h2 class="text-3xl font-bold mb-3">Request Your Free Settlement Quote</h2>
+                        <p class="text-white/90 text-lg">Detailed, itemised breakdown with no obligation.</p>
                     </div>
                 </div>
 
-                <!-- Team Member 2 -->
-                <div class="bg-gray-50 rounded-3xl p-6 flex flex-col sm:flex-row items-center gap-6 shadow-sm hover:shadow-lg transition-all">
-                    <div class="w-24 h-24 rounded-full bg-gray-200 overflow-hidden flex-shrink-0">
-                        <img src="https://ui-avatars.com/api/?name=Maree+Bahn&background=1A1A1A&color=fff" alt="Maree Bahn" class="w-full h-full object-cover">
-                    </div>
-                    <div class="text-center sm:text-left">
-                        <h4 class="text-xl font-bold text-gray-900">Maree Bahn</h4>
-                        <p class="text-brand-red font-medium text-sm uppercase tracking-wider mb-2">Office Manager</p>
-                        <p class="text-gray-600 text-sm">Working in the settlement industry since 1973. Maree brings an abundance of valuable knowledge to every settlement.</p>
-                    </div>
+                <!-- Progress Bar -->
+                <div class="h-2 bg-gray-100 w-full">
+                    <div id="progress-bar" class="h-full bg-brand-gold transition-all duration-500 w-1/3"></div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Testimonials Parallax -->
-    <section class="py-24 bg-fixed bg-cover bg-center relative" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80');">
-        <div class="absolute inset-0 bg-brand-dark/80 backdrop-blur-sm"></div>
-        <div class="max-w-4xl mx-auto px-4 relative z-10 text-center text-white">
-            <i class="fa-solid fa-quote-left text-4xl text-brand-red mb-6"></i>
-            <h2 class="text-2xl md:text-4xl font-medium leading-relaxed mb-8">
-                "West End Settlements made buying our first home a breeze. Professional, efficient, and always available to answer our questions. Could not recommend highly enough."
-            </h2>
-            <div class="flex items-center justify-center gap-4">
-                <div class="text-right">
-                    <div class="font-bold text-lg">Sarah & James</div>
-                    <div class="text-brand-red text-sm">North Perth Homeowners</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 relative bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-brand-dark rounded-[3rem] overflow-hidden shadow-2xl flex flex-col lg:flex-row">
-                
-                <!-- Contact Info -->
-                <div class="lg:w-2/5 p-12 lg:p-16 bg-brand-red text-white relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32 blur-3xl"></div>
-                    <div class="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full -ml-32 -mb-32 blur-3xl"></div>
-                    
-                    <h3 class="text-3xl font-bold mb-6">Get In Touch</h3>
-                    <p class="text-white/80 mb-12">Ready to start your settlement? Contact our friendly team today for a free quote.</p>
-                    
-                    <div class="space-y-8">
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i class="fa-solid fa-phone text-xl"></i>
-                            </div>
-                            <div>
-                                <p class="text-sm text-white/60 font-medium uppercase">Phone</p>
-                                <a href="tel:0894433044" class="text-xl font-bold hover:text-gray-200">(08) 9443 3044</a>
-                            </div>
-                        </div>
+                <!-- Form Body -->
+                <div class="p-8 md:p-12">
+                    <form id="quote-form" class="space-y-8">
                         
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i class="fa-solid fa-location-dot text-xl"></i>
+                        <!-- Step 1 -->
+                        <div class="form-step" id="step-1">
+                            <div class="mb-10">
+                                <h3 class="text-2xl font-bold text-gray-900 mb-2">Quick Start</h3>
+                                <p class="text-gray-500">Tell us about your transaction</p>
                             </div>
-                            <div>
-                                <p class="text-sm text-white/60 font-medium uppercase">Office</p>
-                                <p class="text-lg leading-snug">Shop 6, 7 Scarborough Beach Road,<br>North Perth WA 6006</p>
+
+                            <div class="space-y-8">
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-900 uppercase tracking-wide mb-4">I am a...</label>
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        <label class="radio-card relative flex items-center justify-center p-6 border-2 border-gray-100 rounded-2xl cursor-pointer hover:border-brand-primary/30 hover:bg-gray-50 transition-all group">
+                                            <input type="radio" name="transaction_type" value="buyer" class="absolute h-full w-full opacity-0 cursor-pointer" required>
+                                            <div class="text-center">
+                                                <i class="fa-solid fa-cart-shopping text-3xl mb-3 text-brand-primary transition-transform group-hover:scale-110"></i>
+                                                <span class="block font-bold text-gray-900 text-lg">Buyer</span>
+                                            </div>
+                                        </label>
+                                        <label class="radio-card relative flex items-center justify-center p-6 border-2 border-gray-100 rounded-2xl cursor-pointer hover:border-brand-primary/30 hover:bg-gray-50 transition-all group">
+                                            <input type="radio" name="transaction_type" value="seller" class="absolute h-full w-full opacity-0 cursor-pointer">
+                                            <div class="text-center">
+                                                <i class="fa-solid fa-house-flag text-3xl mb-3 text-brand-primary transition-transform group-hover:scale-110"></i>
+                                                <span class="block font-bold text-gray-900 text-lg">Seller</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-900 uppercase tracking-wide mb-4">I'm interested in...</label>
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        <label class="radio-card relative flex items-center justify-center p-6 border-2 border-gray-100 rounded-2xl cursor-pointer hover:border-brand-primary/30 hover:bg-gray-50 transition-all group">
+                                            <input type="radio" name="interest_type" value="property" class="absolute h-full w-full opacity-0 cursor-pointer" required>
+                                            <div class="text-center">
+                                                <i class="fa-solid fa-house text-3xl mb-3 text-brand-primary transition-transform group-hover:scale-110"></i>
+                                                <span class="block font-bold text-gray-900 text-lg">Property</span>
+                                            </div>
+                                        </label>
+                                        <label class="radio-card relative flex items-center justify-center p-6 border-2 border-gray-100 rounded-2xl cursor-pointer hover:border-brand-primary/30 hover:bg-gray-50 transition-all group">
+                                            <input type="radio" name="interest_type" value="business" class="absolute h-full w-full opacity-0 cursor-pointer">
+                                            <div class="text-center">
+                                                <i class="fa-solid fa-briefcase text-3xl mb-3 text-brand-primary transition-transform group-hover:scale-110"></i>
+                                                <span class="block font-bold text-gray-900 text-lg">Business</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-900 uppercase tracking-wide mb-2">Suburb or Postcode</label>
+                                    <input type="text" name="suburb" list="suburbs-list" class="w-full bg-gray-50 border-gray-200 rounded-xl shadow-sm focus:ring-brand-primary focus:border-brand-primary p-4 border transition-colors text-lg" placeholder="e.g. North Perth" required>
+                                    <datalist id="suburbs-list">
+                                        <option value="North Perth">
+                                        <option value="Perth">
+                                        <option value="Scarborough">
+                                        <option value="Fremantle">
+                                        <option value="Joondalup">
+                                        <option value="Mandurah">
+                                        <option value="Rockingham">
+                                        <option value="Bunbury">
+                                        <option value="Subiaco">
+                                        <option value="Victoria Park">
+                                        <option value="Mount Lawley">
+                                        <option value="Cottesloe">
+                                        <option value="South Perth">
+                                        <option value="Claremont">
+                                        <option value="Balcatta">
+                                        <option value="Dianella">
+                                        <option value="Morley">
+                                        <option value="Canning Vale">
+                                        <option value="Armadale">
+                                        <option value="Midland">
+                                    </datalist>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-900 uppercase tracking-wide mb-2">Estimated Price Range</label>
+                                    <select name="price_range" class="w-full bg-gray-50 border-gray-200 rounded-xl shadow-sm focus:ring-brand-primary focus:border-brand-primary p-4 border transition-colors text-lg" required>
+                                        <option value="">Select Range</option>
+                                        <option value="0-300k">Under $300k</option>
+                                        <option value="300k-500k">$300k - $500k</option>
+                                        <option value="500k-750k">$500k - $750k</option>
+                                        <option value="750k-1m">$750k - $1m</option>
+                                        <option value="1m-1.5m">$1m - $1.5m</option>
+                                        <option value="1.5m+">Over $1.5m</option>
+                                    </select>
+                                </div>
+
+                                <button type="button" class="btn-next w-full bg-brand-pop text-white font-bold py-5 rounded-xl hover:bg-red-700 transition-all shadow-lg hover:shadow-red-500/30 transform hover:-translate-y-1 text-lg">
+                                    Continue
+                                </button>
+                                <p class="text-center text-xs text-gray-400 mt-4">Your information is secure and will only be used to prepare your quote. No obligation.</p>
                             </div>
                         </div>
 
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <i class="fa-solid fa-envelope text-xl"></i>
+                        <!-- Step 2 -->
+                        <div class="form-step hidden" id="step-2">
+                            <div class="mb-10">
+                                <h3 class="text-2xl font-bold text-gray-900 mb-2">Details</h3>
+                                <p class="text-gray-500">A few more details about the transaction</p>
                             </div>
-                            <div>
-                                <p class="text-sm text-white/60 font-medium uppercase">Email</p>
-                                <a href="mailto:info@westendsettlements.com.au" class="text-lg hover:text-gray-200">info@westendsettlements.com.au</a>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="mt-12 pt-8 border-t border-white/20">
-                        <p class="text-sm text-white/60">Postal Address: PO Box 368, North Perth WA 6906</p>
-                    </div>
-                </div>
+                            <!-- Residential Fields -->
+                            <div id="residential-fields" class="space-y-8">
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-900 uppercase tracking-wide mb-4">Property Type</label>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <label class="radio-card flex items-center space-x-3 p-4 border-2 border-gray-100 rounded-xl cursor-pointer hover:bg-gray-50 transition-all">
+                                            <input type="radio" name="property_type" value="house" class="text-brand-primary focus:ring-brand-primary">
+                                            <span class="font-semibold text-gray-700">House</span>
+                                        </label>
+                                        <label class="radio-card flex items-center space-x-3 p-4 border-2 border-gray-100 rounded-xl cursor-pointer hover:bg-gray-50 transition-all">
+                                            <input type="radio" name="property_type" value="unit" class="text-brand-primary focus:ring-brand-primary">
+                                            <span class="font-semibold text-gray-700">Unit/Apt</span>
+                                        </label>
+                                        <label class="radio-card flex items-center space-x-3 p-4 border-2 border-gray-100 rounded-xl cursor-pointer hover:bg-gray-50 transition-all">
+                                            <input type="radio" name="property_type" value="land" class="text-brand-primary focus:ring-brand-primary">
+                                            <span class="font-semibold text-gray-700">Vacant Land</span>
+                                        </label>
+                                        <label class="radio-card flex items-center space-x-3 p-4 border-2 border-gray-100 rounded-xl cursor-pointer hover:bg-gray-50 transition-all">
+                                            <input type="radio" name="property_type" value="other" class="text-brand-primary focus:ring-brand-primary">
+                                            <span class="font-semibold text-gray-700">Other</span>
+                                        </label>
+                                    </div>
+                                </div>
 
-                <!-- Form -->
-                <div class="lg:w-3/5 p-12 lg:p-16 bg-white">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-8">Request a Quote</h3>
-                    <form class="space-y-6" onsubmit="event.preventDefault(); alert('Thank you! We will contact you shortly.');">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="relative">
-                                <input type="text" id="name" class="peer w-full border-b-2 border-gray-200 py-2 placeholder-transparent focus:outline-none focus:border-brand-red transition-colors" placeholder="Name">
-                                <label for="name" class="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Full Name</label>
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-900 uppercase tracking-wide mb-4">Are you a First Home Buyer in WA?</label>
+                                    <div class="flex space-x-8">
+                                        <label class="flex items-center space-x-3 cursor-pointer group">
+                                            <div class="relative flex items-center justify-center w-6 h-6 rounded-full border-2 border-gray-300 group-hover:border-brand-primary transition-colors">
+                                                <input type="radio" name="first_home_buyer" value="yes" class="peer absolute opacity-0 w-full h-full cursor-pointer">
+                                                <div class="w-3 h-3 bg-brand-primary rounded-full opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+                                            </div>
+                                            <span class="font-semibold text-gray-700">Yes</span>
+                                        </label>
+                                        <label class="flex items-center space-x-3 cursor-pointer group">
+                                            <div class="relative flex items-center justify-center w-6 h-6 rounded-full border-2 border-gray-300 group-hover:border-brand-primary transition-colors">
+                                                <input type="radio" name="first_home_buyer" value="no" class="peer absolute opacity-0 w-full h-full cursor-pointer" checked>
+                                                <div class="w-3 h-3 bg-brand-primary rounded-full opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+                                            </div>
+                                            <span class="font-semibold text-gray-700">No</span>
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="relative">
-                                <input type="tel" id="phone" class="peer w-full border-b-2 border-gray-200 py-2 placeholder-transparent focus:outline-none focus:border-brand-red transition-colors" placeholder="Phone">
-                                <label for="phone" class="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Phone Number</label>
-                            </div>
-                        </div>
-                        
-                        <div class="relative">
-                            <input type="email" id="email" class="peer w-full border-b-2 border-gray-200 py-2 placeholder-transparent focus:outline-none focus:border-brand-red transition-colors" placeholder="Email">
-                            <label for="email" class="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Email Address</label>
-                        </div>
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="relative">
-                                <select class="w-full border-b-2 border-gray-200 py-2 text-gray-500 focus:outline-none focus:border-brand-red bg-transparent">
-                                    <option>Service Required</option>
-                                    <option>Selling Property</option>
-                                    <option>Buying Property</option>
-                                    <option>Title Search</option>
-                                    <option>Subdivision</option>
+                            <!-- Business Fields (Hidden by default) -->
+                            <div id="business-fields" class="space-y-8 hidden">
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-900 uppercase tracking-wide mb-2">Type of Business</label>
+                                    <input type="text" name="business_type" class="w-full bg-gray-50 border-gray-200 rounded-xl shadow-sm focus:ring-brand-primary focus:border-brand-primary p-4 border transition-colors text-lg" placeholder="e.g. Cafe, Retail, Service">
+                                </div>
+                            </div>
+
+                            <div class="pt-6">
+                                <label class="block text-sm font-bold text-gray-900 uppercase tracking-wide mb-2">Estimated Settlement Timeframe</label>
+                                <select name="timeframe" class="w-full bg-gray-50 border-gray-200 rounded-xl shadow-sm focus:ring-brand-primary focus:border-brand-primary p-4 border transition-colors text-lg">
+                                    <option value="30">Within 30 days</option>
+                                    <option value="60" selected>30-60 days</option>
+                                    <option value="90">60-90 days</option>
+                                    <option value="90+">90+ days</option>
                                 </select>
                             </div>
-                            <div class="relative">
-                                <input type="text" id="suburb" class="peer w-full border-b-2 border-gray-200 py-2 placeholder-transparent focus:outline-none focus:border-brand-red transition-colors" placeholder="Property Suburb">
-                                <label for="suburb" class="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Property Suburb</label>
+
+                            <div class="flex gap-4 mt-10">
+                                <button type="button" class="btn-prev w-1/3 border-2 border-gray-200 text-gray-700 font-bold py-5 rounded-xl hover:bg-gray-50 hover:border-gray-300 transition-all text-lg">
+                                    Back
+                                </button>
+                                <button type="button" class="btn-next w-2/3 bg-brand-pop text-white font-bold py-5 rounded-xl hover:bg-red-700 transition-all shadow-lg hover:shadow-red-500/30 text-lg">
+                                    Continue
+                                </button>
                             </div>
                         </div>
 
-                        <div class="relative pt-4">
-                            <button type="submit" class="w-full bg-gray-900 text-white font-bold py-4 rounded-xl hover:bg-brand-red transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1 duration-200">
-                                Submit Enquiry
-                            </button>
+                        <!-- Step 3 -->
+                        <div class="form-step hidden" id="step-3">
+                            <div class="mb-10">
+                                <h3 class="text-2xl font-bold text-gray-900 mb-2">Contact Information</h3>
+                                <p class="text-gray-500">Where should we send your quote?</p>
+                            </div>
+
+                            <div class="space-y-6">
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-900 uppercase tracking-wide mb-2">Full Name</label>
+                                    <input type="text" name="fullname" class="w-full bg-gray-50 border-gray-200 rounded-xl shadow-sm focus:ring-brand-primary focus:border-brand-primary p-4 border transition-colors text-lg" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-900 uppercase tracking-wide mb-2">Email Address</label>
+                                    <input type="email" name="email" class="w-full bg-gray-50 border-gray-200 rounded-xl shadow-sm focus:ring-brand-primary focus:border-brand-primary p-4 border transition-colors text-lg" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-900 uppercase tracking-wide mb-2">Phone Number</label>
+                                    <input type="tel" name="phone" class="w-full bg-gray-50 border-gray-200 rounded-xl shadow-sm focus:ring-brand-primary focus:border-brand-primary p-4 border transition-colors text-lg" required>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-xl text-sm text-gray-600 border border-gray-100">
+                                    <label class="flex items-start space-x-4 cursor-pointer">
+                                        <input type="checkbox" name="consent" class="mt-1 w-5 h-5 text-brand-primary focus:ring-brand-primary rounded border-gray-300" required>
+                                        <span class="leading-relaxed">I consent to West End Settlements contacting me regarding my settlement quote. Your information is handled in accordance with our Privacy Policy.</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4 mt-10">
+                                <button type="button" class="btn-prev w-1/3 border-2 border-gray-200 text-gray-700 font-bold py-5 rounded-xl hover:bg-gray-50 hover:border-gray-300 transition-all text-lg">
+                                    Back
+                                </button>
+                                <button type="submit" class="w-2/3 bg-brand-pop text-white font-bold py-5 rounded-xl hover:bg-red-700 transition-all shadow-lg hover:shadow-red-500/30 text-lg">
+                                    Request My Quote
+                                </button>
+                            </div>
+                            <p class="text-center text-xs text-gray-400 mt-4">Free itemised quote with no obligation.</p>
                         </div>
+
                     </form>
                 </div>
+            </div>
+
+            <!-- Alternative Contact -->
+            <div class="text-center mt-16">
+                <h4 class="text-xl font-bold text-white mb-6">Prefer to speak with us directly?</h4>
+                <div class="inline-flex flex-col md:flex-row gap-6 text-left bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition-colors">
+                    <div class="flex items-start gap-4">
+                        <div class="bg-brand-pop/20 p-3 rounded-xl text-brand-pop">
+                            <i class="fa-solid fa-location-dot text-xl"></i>
+                        </div>
+                        <div>
+                            <div class="font-bold text-white">Visit Us</div>
+                            <div class="text-gray-300 text-sm leading-relaxed">Shop 6, 7 Scarborough Beach Road,<br>North Perth</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="bg-brand-pop/20 p-3 rounded-xl text-brand-pop">
+                            <i class="fa-solid fa-phone text-xl"></i>
+                        </div>
+                        <div>
+                            <div class="font-bold text-white">Call Us</div>
+                            <a href="tel:0894433044" class="text-gray-300 text-sm hover:text-brand-pop transition-colors block">(08) 9443 3044</a>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="bg-brand-pop/20 p-3 rounded-xl text-brand-pop">
+                            <i class="fa-solid fa-envelope text-xl"></i>
+                        </div>
+                        <div>
+                            <div class="font-bold text-white">Email Us</div>
+                            <a href="mailto:info@westendsettlements.com.au" class="text-gray-300 text-sm hover:text-brand-pop transition-colors block">info@westendsettlements.com.au</a>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-8 text-gray-400 text-sm max-w-2xl mx-auto italic">
+                    We love welcoming our clients in person! To make sure we’re fully prepared and can give you the attention and care you deserve, we kindly ask that you book an appointment.
+                </p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-white border-t border-gray-100 pt-16 pb-8">
+    <footer class="bg-brand-dark border-t border-white/5 pt-20 pb-10 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
-                <div class="flex items-center gap-2 mb-4 md:mb-0">
-                    <div class="bg-brand-red text-white p-1.5 rounded shadow-sm">
-                        <i class="fa-solid fa-house-chimney"></i>
+            <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+                <div class="flex items-center gap-3 mb-6 md:mb-0">
+                    <div class="bg-brand-primary text-white p-2.5 rounded-xl shadow-lg">
+                        <i class="fa-solid fa-house-chimney text-xl"></i>
                     </div>
-                    <span class="text-xl font-bold text-gray-900">WestEnd Settlements</span>
+                    <span class="text-2xl font-bold text-white">WestEnd Settlements</span>
                 </div>
-                <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-brand-red transition-colors"><i class="fa-brands fa-facebook text-xl"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-brand-red transition-colors"><i class="fa-brands fa-linkedin text-xl"></i></a>
+                <div class="flex space-x-8">
+                    <a href="#" class="text-gray-400 hover:text-white hover:scale-110 transition-all"><i class="fa-brands fa-facebook text-2xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white hover:scale-110 transition-all"><i class="fa-brands fa-linkedin text-2xl"></i></a>
                 </div>
             </div>
-            <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between text-sm text-gray-500">
-                <p>&copy; 2025 West End Settlements. All rights reserved.</p>
-                <div class="flex space-x-6 mt-4 md:mt-0">
-                    <a href="#" class="hover:text-brand-red">Privacy Policy</a>
-                    <a href="#" class="hover:text-brand-red">Terms of Service</a>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between text-sm text-gray-400">
+                <div class="mb-4 md:mb-0 text-center md:text-left">
+                    <p class="mb-2">&copy; 2025 West End Settlements. All rights reserved.</p>
+                    <p class="text-xs text-gray-500">Millaros Pty Ltd ABN 69 686 581 224</p>
+                </div>
+                <div class="flex space-x-8 justify-center">
+                    <a href="privacy-policy.html" class="hover:text-brand-pop transition-colors">Privacy Policy</a>
                 </div>
             </div>
         </div>
@@ -535,5 +719,6 @@
             observer.observe(el);
         });
     </script>
+    <script src="js/quote-form.js"></script>
 </body>
 </html>
